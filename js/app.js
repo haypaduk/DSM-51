@@ -1,5 +1,12 @@
 function iniciarApp() {
 
+    const logoutButton = document.getElementById('logout');
+if (logoutButton) {
+    logoutButton.addEventListener('click', function () {
+        localStorage.removeItem('loggedIn'); // Elimina la sesión
+        window.location.href = 'login.html'; // Redirige al login
+    });
+}
 
     const resultado = document.querySelector('#resultado');
 
