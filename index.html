@@ -1,237 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <h1 class="led-text">Chart.js</h1>
-    <style>
-        body {
-            background-color: black;
-            color: rgb(255, 255, 255);
-            text-align: center;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .menu {
-            margin: auto;
-        }
-        .menu a {
-            display: block;
-            padding: 10px;
-            margin: 10px auto;
-            width: 200px;
-            background: rgb(255, 255, 255);
-            color: #000000;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            font-family: 'Courier New', Courier, monospace;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow:
-                0 0 5px #FFD700,
-                0 0 10px #FFD700,
-                0 0 15px #FFD700,
-                0 0 20px #FFD700,
-                0 0 30px #FFD700,
-                0 0 40px #FFD700,
-                0 0 50px #FFD700;
-            animation: blink 1.5s infinite;
-        }
-        .led-text {
-            font-size: 24px;
-            color: rgb(0, 200, 255);
-            text-shadow:
-                0 0 5px #0ff,
-                0 0 10px rgb(0, 42, 255),
-                0 0 15px rgb(0, 0, 0),
-                0 0 20px #0ff,
-                0 0 30px rgb(255, 255, 255),
-                0 0 40px rgb(255, 255, 255),
-                0 0 50px rgb(0, 0, 0);
-            animation: blink 1.5s infinite;
-            margin-top: auto;
-            padding: 20px;
-        }
-        .chart-container {
-            display: none;
-            width: 80vw; /* 80% del ancho de la ventana */
-            height: 70vh; /* 70% de la altura de la ventana */
-            margin: 20px auto;
-        }
-        canvas {
-            width: 100% !important;  /* Asegura que el canvas ocupe todo el ancho del contenedor */
-            height: 100% !important; /* Asegura que el canvas ocupe toda la altura del contenedor */
-        }
-        .back-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: white;
-            color: black;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.6; }
-            100% { opacity: 1; }
-        }
-    </style>
+    <title>Tienda</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="menu">
-<button class="exit-button" onclick="exitPage()">SALIR</button>
-
-<style>
-    .exit-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        padding: 15px 30px;
-        background-color: red;
-        color: white;
-        font-weight: bold;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-    .exit-button:hover {
-        background-color: darkred;
-    }
-</style>
-
-<script>
-    function exitPage() {
-        window.close();
-    }
-</script>
-
-        <h2 class="led-text">Bienvenido, podrás seleccionar la tabla que gustes inspeccionar</h2>
-        <a href="#" onclick="showChart(1)">Gráfico 1</a>
-        <a href="#" onclick="showChart(2)">Gráfico 2</a>
-        <a href="#" onclick="showChart(3)">Gráfico 3</a>
-        <a href="#" onclick="showChart(4)">Gráfico 4</a>
-        <a href="#" onclick="showChart(5)">Gráfico 5</a>
+    <header class="header-container">
+        <img src="img/pop.png" alt="Logo" class="header-logo">
+        <div class="header-left">
+            <h1>Tienda en Línea</h1>
+            <h2 class="encabezado">JOSEF BENJAMIN COLIN MARTINEZ DSM-51</h2>
+            <p>Encuentra los mejores productos tecnológicos al mejor precio.</p>
+        </div>
+        <div class="header-right">
+            <input type="text" id="search-bar" placeholder="Buscar productos...">
+            <button id="cart-btn">🛒</button>
+        </div>
+    </header>
+        <section id="productos">
+        <div class="producto" data-nombre="Laptop Gamer">
+            <img src="img/laptop.jpg" alt="Laptop Gamer">
+            <h3>Laptop Gamer</h3>
+            <p>Precio: $1200</p>
+            <div class="rating">★★★★★</div>
+            <p>Potente laptop para juegos con tarjeta gráfica dedicada y pantalla Full HD de 15.6".</p>
+            <button class="add-to-cart" data-nombre="Laptop Gamer" data-precio="1200">Agregar al Carrito</button>
+        </div>
+        <div class="producto" data-nombre="Smartphone Pro">
+            <img src="img/pro.jpg" alt="Smartphone Pro">
+            <h3>Smartphone Pro</h3>
+            <p>Precio: $999</p>
+            <div class="rating">★★★★☆</div>
+            <p>Smartphone con cámara de 64 MP, pantalla AMOLED de 6.5" y procesador de última generación.</p>
+            <button class="add-to-cart" data-nombre="Smartphone Pro" data-precio="999">Agregar al Carrito</button>
+        </div>
+        <div class="producto" data-nombre="Audífonos Bluetooth">
+            <img src="img/audifonos.png" alt="Audífonos Bluetooth">
+            <h3>Audífonos Bluetooth</h3>
+            <p>Precio: $150</p>
+            <div class="rating">★★★★☆</div>
+            <p>Audífonos inalámbricos con cancelación de ruido y sonido de alta calidad.</p>
+            <button class="add-to-cart" data-nombre="Audífonos Bluetooth" data-precio="150">Agregar al Carrito</button>
+        </div>
+        <div class="producto" data-nombre="Smartwatch">
+            <img src="img/smarwatch.jpg" alt="Smartwatch">
+            <h3>Smartwatch</h3>
+            <p>Precio: $250</p>
+            <div class="rating">★★★☆☆</div>
+            <p>Reloj inteligente con monitor de salud, notificaciones y seguimiento de actividad.</p>
+            <button class="add-to-cart" data-nombre="Smartwatch" data-precio="250">Agregar al Carrito</button>
+        </div>
+        <div class="producto" data-nombre="Teclado Mecánico">
+            <img src="img/teclado.png" alt="Teclado Mecánico">
+            <h3>Teclado Mecánico</h3>
+            <p>Precio: $150</p>
+            <div class="rating">★★★★☆</div>
+            <p>Teclado mecánico RGB con switches mecánicos para una experiencia de escritura precisa y rápida.</p>
+            <button class="add-to-cart" data-nombre="Teclado Mecánico" data-precio="150">Agregar al Carrito</button>
+        </div>
+        <div class="producto" data-nombre="Ratón Gaming">
+            <img src="img/raton.png" alt="Ratón Gaming">
+            <h3>Ratón Gaming</h3>
+            <p>Precio: $80</p>
+            <div class="rating">★★★★☆</div>
+            <p>Ratón ergonómico con botones programables y sensores de alta precisión para juegos.</p>
+            <button class="add-to-cart" data-nombre="Ratón Gaming" data-precio="80">Agregar al Carrito</button>
+        </div>
+        <div class="producto" data-nombre="Monitor UltraWide">
+            <img src="img/monitor.png" alt="Monitor UltraWide">
+            <h3>Monitor UltraWide</h3>
+            <p>Precio: $600</p>
+            <div class="rating">★★★★★</div>
+            <p>Monitor UltraWide de 34 pulgadas con resolución 1440p y una tasa de refresco de 144Hz.</p>
+            <button class="add-to-cart" data-nombre="Monitor UltraWide" data-precio="600">Agregar al Carrito</button>
+        </div>
+        <div class="producto" data-nombre="Silla Ergonómica">
+            <img src="img/silla.png" alt="Silla Ergonómica">
+            <h3>Silla Ergonómica</h3>
+            <p>Precio: $350</p>
+            <div class="rating">★★★★☆</div>
+            <p>Silla ergonómica ajustable con soporte lumbar, ideal para largas jornadas de trabajo o juego.</p>
+            <button class="add-to-cart" data-nombre="Silla Ergonómica" data-precio="350">Agregar al Carrito</button>
+        </div>
+        <div class="producto" data-nombre="Cámara Web 4K">
+            <img src="img/camara.png" alt="Cámara Web 4K">
+            <h3>Cámara Web 4K</h3>
+            <p>Precio: $200</p>
+            <div class="rating">★★★☆☆</div>
+            <p>Cámara web con resolución 4K, ideal para videoconferencias y streaming de alta calidad.</p>
+            <button class="add-to-cart" data-nombre="Cámara Web 4K" data-precio="200">Agregar al Carrito</button>
+        </div>
+        <div class="producto" data-nombre="Disco Duro SSD 1TB">
+            <img src="img/disco.png" alt="Disco Duro SSD 1TB">
+            <h3>Disco Duro SSD 1TB</h3>
+            <p>Precio: $120</p>
+            <div class="rating">★★★★★</div>
+            <p>Disco duro SSD de 1TB para almacenamiento rápido y confiable.</p>
+            <button class="add-to-cart" data-nombre="Disco Duro SSD 1TB" data-precio="120">Agregar al Carrito</button>
+        </div>
+        <div class="producto" data-nombre="Cargador Inalámbrico">
+            <img src="img/cargador.png" alt="Cargador Inalámbrico">
+            <h3>Cargador Inalámbrico</h3>
+            <p>Precio: $40</p>
+            <div class="rating">★★★☆☆</div>
+            <p>Cargador inalámbrico rápido para tus dispositivos compatibles con carga Qi.</p>
+            <button class="add-to-cart" data-nombre="Cargador Inalámbrico" data-precio="40">Agregar al Carrito</button>
+        </div>
+    </section>
+    
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: $<span id="cart-total">0</span></p>
+            <button id="clear-cart">Vaciar Carrito</button>
+        </div>
     </div>
 
-    <div id="chart1" class="chart-container">
-        <canvas id="myChart1"></canvas>
-        <a href="#" class="back-button" onclick="showMenu()">Regresar al Menú Principal</a>
-    </div>
-    <div id="chart2" class="chart-container">
-        <canvas id="myChart2"></canvas>
-        <a href="#" class="back-button" onclick="showMenu()">Regresar al Menú Principal</a>
-    </div>
-    <div id="chart3" class="chart-container">
-        <canvas id="myChart3"></canvas>
-        <a href="#" class="back-button" onclick="showMenu()">Regresar al Menú Principal</a>
-    </div>
-    <div id="chart4" class="chart-container">
-        <canvas id="myChart4"></canvas>
-        <a href="#" class="back-button" onclick="showMenu()">Regresar al Menú Principal</a>
-    </div>
-    <div id="chart5" class="chart-container">
-        <canvas id="myChart5"></canvas>
-        <a href="#" class="back-button" onclick="showMenu()">Regresar al Menú Principal</a>
-    </div>
-
-    <div class="led-text">JOSEF BENJAMIN COLIN MARTINEZ DSM-51</div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        function showChart(num) {
-            document.querySelector('.menu').style.display = 'none';
-            document.querySelectorAll('.chart-container').forEach(el => el.style.display = 'none');
-            document.getElementById('chart' + num).style.display = 'block';
-            renderChart(num);
-        }
-
-        function showMenu() {
-            document.querySelector('.menu').style.display = 'block';
-            document.querySelectorAll('.chart-container').forEach(el => el.style.display = 'none');
-        }
-
-function renderChart(num) {
-let ctx = document.getElementById('myChart' + num).getContext('2d');
-let data, backgroundColor, chartType, borderColor, options;
-
-    switch(num) {
-        case 1: 
-            chartType = 'bar';
-            data = [20, 35, 15, 30, 25];
-            backgroundColor = ['gold', 'gold', 'gold', 'gold', 'gold'];
-            borderColor = 'white';
-            options = { responsive: true, scales: { y: { beginAtZero: true } } };
-            break;
-        case 2: 
-            chartType = 'line';
-            data = [10, 20, 15, 25, 30];
-            backgroundColor = 'rgba(173, 216, 230, 0.5)'; // Celeste transparente
-            borderColor = 'lightblue';
-            options = {
-                responsive: true,
-                elements: { line: { tension: 0.4 } }, // Líneas curvas
-                scales: { y: { beginAtZero: true } }
-            };
-            break;
-        case 3: 
-            chartType = 'radar';
-            data = [12, 18, 5, 8, 20];
-            backgroundColor = 'rgba(255, 99, 132, 0.2)';
-            borderColor = 'red';
-            options = { responsive: true, scales: { r: { beginAtZero: true } } };
-            break;
-        case 4: 
-            chartType = 'bubble';
-            data = [
-                { x: 5, y: 10, r: 15 },
-                { x: 15, y: 5, r: 10 },
-                { x: 10, y: 15, r: 20 },
-                { x: 20, y: 8, r: 12 },
-                { x: 8, y: 12, r: 18 }
-            ];
-            backgroundColor = ['blue', 'green', 'yellow', 'purple', 'orange'];
-            borderColor = 'white';
-            options = { responsive: true, scales: { x: { beginAtZero: true }, y: { beginAtZero: true } } };
-            break;
-        case 5: 
-            chartType = 'bar';
-            data = [25, 10, 30, 15, 20];
-            let gradient = ctx.createLinearGradient(0, 0, 0, 400);
-            gradient.addColorStop(0, 'gold');
-            gradient.addColorStop(1, 'orange');
-            backgroundColor = gradient;
-            borderColor = 'white';
-            options = { responsive: true, indexAxis: 'y', scales: { x: { beginAtZero: true } } };
-            break;
-    }
-
-    new Chart(ctx, {
-        type: chartType,
-        data: {
-            labels: ['DSM', 'IRD', 'BD', 'IOT', 'JS'],
-            datasets: [{
-                label: 'Example Data',
-                data: data,
-                backgroundColor: backgroundColor,
-                borderColor: borderColor,
-                borderWidth: 1
-            }]
-        },
-        options: options
-    });
-}
-    </script>
-
-    </body>
-
+    <script src="script.js"></script>
+</body>
 </html>

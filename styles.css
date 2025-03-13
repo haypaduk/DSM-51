@@ -1,0 +1,274 @@
+body {
+    background-image: url('img/gears-of-war-logo.jpg'); /* Ruta de la imagen */
+    background-size: auto; /* Ajusta la imagen para cubrir toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que se repita */
+    background-color: #000000;
+}
+
+
+header {
+    background: url('img/gears.jpg') no-repeat center center/cover;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    border-radius: 10px; /* Bordes redondeados opcionales */
+    border: 2px solid #FF0000; /* Borde LED rojo */
+    box-shadow: 
+        0 0 10px #FF0000, /* Resplandor interno */
+        0 0 20px #FF0000, 
+        0 0 30px #FF0000, 
+        0 0 40px #FF0000; /* Resplandor externo */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Efecto de brillo más intenso al pasar el mouse */
+header:hover {
+    box-shadow: 
+        0 0 15px #FF0000, 
+        0 0 30px #FF0000, 
+        0 0 45px #FF0000, 
+        0 0 60px #FF0000;
+}
+.header-container {
+    position: relative; /* Necesario para que los elementos absolutos se posicionen dentro */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.header-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;  /* Ajusta el tamaño según necesites */
+    height: auto;
+    margin: 10px; /* Espacio alrededor */
+}
+
+header .nav-links {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+    list-style-type: none;
+    margin: 0;
+}
+
+header .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+header .nav-links a:hover {
+    color: #00BFFF; /* Color LED azul al pasar el ratón */
+    text-shadow: 0 0 10px #00BFFF, 0 0 20px #00BFFF;
+}
+
+#search-bar {
+    padding: 8px;
+    width: 250px;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    background: #000000;
+    color: #fff;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+#search-bar:focus {
+    border: 2px solid #009dff;
+    outline: none;
+}
+
+.cart-product {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.cart-item {
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#cart-total {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#cart-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    transition: text-shadow 0.3s ease;
+}
+
+#cart-btn:hover {
+    text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000;
+}
+
+#productos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los productos bajen a la siguiente fila */
+    justify-content: center; /* Centra los productos en la fila */
+    gap: 20px; /* Espaciado entre productos */
+    padding: 20px;
+    max-width: 1200px; /* Ajusta el ancho máximo */
+    margin: auto;
+}
+
+.producto {
+    width: 30%; /* Ajusta para que entren 3 productos por fila */
+    border: 2px solid #00BFFF;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    background: #222;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Media queries para adaptar en diferentes pantallas */
+@media (max-width: 1024px) {
+    .producto {
+        width: 45%; /* 2 productos por fila en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .producto {
+        width: 48%; /* 2 productos por fila en tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .producto {
+        width: 100%; /* 1 producto por fila en móviles */
+    }
+}
+
+.producto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+}
+
+.producto img {
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto:hover img {
+    border: 4px solid #00BFFF; /* Borde LED azul */
+    box-shadow: 0 0 15px 4px #00BFFF; /* Resplandor LED azul */
+}
+
+.rating {
+    font-size: 20px;
+    color: gold;
+    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00;
+}
+
+button {
+    background: #1e1e1e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    background: #ff0000;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+button:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: #ff0000;
+    transition: all 0.4s;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+button:hover:after {
+    opacity: 0.2;
+    width: 400%;
+    height: 400%;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background: #ffffff;
+    margin: 10% auto;
+    padding: 30px;
+    width: 50%;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.close {
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+    color: #ff0000;
+}
+
+.close:hover {
+    color: #fff;
+}
+
+.encabezado {
+    font-size: 32px;
+    color: #00d0ff;
+    position: absolute; /* Posicionamiento absoluto */
+    bottom: 0; /* Coloca el texto en la parte inferior */
+    right: 0; /* Coloca el texto en la parte derecha */
+    margin: 0; /* Elimina márgenes por defecto */
+}
