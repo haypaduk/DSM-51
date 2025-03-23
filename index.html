@@ -1,125 +1,77 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Buscador Recetas Comida</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-    <header class="header-container">
-        <img src="img/pop.png" alt="Logo" class="header-logo">
-        <div class="header-left">
-            <h1>Tienda en Línea</h1>
-            <h2 class="encabezado">JOSEF BENJAMIN COLIN MARTINEZ DSM-51</h2>
-            <p>Encuentra los mejores productos tecnológicos al mejor precio.</p>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger bg-gradient p-3">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-4" href="index.html">Buscador de Recetas Josef Benjamin Colin Martinez DSM-51</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 active" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4" href="favoritos.html">Tu Seleccion De Favoritos</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="header-right">
-            <input type="text" id="search-bar" placeholder="Buscar productos...">
-            <button id="cart-btn">🛒</button>
+    </nav>
+
+    <main class="mt-5 container-lg">
+        <h2 class="text-center fs-1">HOME</h2>
+  
+        <div class="d-md-flex justify-content-md-center mt-5 ">
+            <form class="card col-md-8 bg-light p-5">
+                <div>
+                    <label for="categorias" class="form-label">Categoría</label>
+                    <select id="categorias" class="form-select">
+                        <option selected>-- Buscador De Comida --</option>
+                    </select>
+                </div>
+            </form>
         </div>
-    </header>
-        <section id="productos">
-        <div class="producto" data-nombre="Laptop Gamer">
-            <img src="img/laptop.jpg" alt="Laptop Gamer">
-            <h3>Laptop Gamer</h3>
-            <p>Precio: $1200</p>
-            <div class="rating">★★★★★</div>
-            <p>Potente laptop para juegos con tarjeta gráfica dedicada y pantalla Full HD de 15.6".</p>
-            <button class="add-to-cart" data-nombre="Laptop Gamer" data-precio="1200">Agregar al Carrito</button>
-        </div>
-        <div class="producto" data-nombre="Smartphone Pro">
-            <img src="img/pro.jpg" alt="Smartphone Pro">
-            <h3>Smartphone Pro</h3>
-            <p>Precio: $999</p>
-            <div class="rating">★★★★☆</div>
-            <p>Smartphone con cámara de 64 MP, pantalla AMOLED de 6.5" y procesador de última generación.</p>
-            <button class="add-to-cart" data-nombre="Smartphone Pro" data-precio="999">Agregar al Carrito</button>
-        </div>
-        <div class="producto" data-nombre="Audífonos Bluetooth">
-            <img src="img/audifonos.png" alt="Audífonos Bluetooth">
-            <h3>Audífonos Bluetooth</h3>
-            <p>Precio: $150</p>
-            <div class="rating">★★★★☆</div>
-            <p>Audífonos inalámbricos con cancelación de ruido y sonido de alta calidad.</p>
-            <button class="add-to-cart" data-nombre="Audífonos Bluetooth" data-precio="150">Agregar al Carrito</button>
-        </div>
-        <div class="producto" data-nombre="Smartwatch">
-            <img src="img/smarwatch.jpg" alt="Smartwatch">
-            <h3>Smartwatch</h3>
-            <p>Precio: $250</p>
-            <div class="rating">★★★☆☆</div>
-            <p>Reloj inteligente con monitor de salud, notificaciones y seguimiento de actividad.</p>
-            <button class="add-to-cart" data-nombre="Smartwatch" data-precio="250">Agregar al Carrito</button>
-        </div>
-        <div class="producto" data-nombre="Teclado Mecánico">
-            <img src="img/teclado.png" alt="Teclado Mecánico">
-            <h3>Teclado Mecánico</h3>
-            <p>Precio: $150</p>
-            <div class="rating">★★★★☆</div>
-            <p>Teclado mecánico RGB con switches mecánicos para una experiencia de escritura precisa y rápida.</p>
-            <button class="add-to-cart" data-nombre="Teclado Mecánico" data-precio="150">Agregar al Carrito</button>
-        </div>
-        <div class="producto" data-nombre="Ratón Gaming">
-            <img src="img/raton.png" alt="Ratón Gaming">
-            <h3>Ratón Gaming</h3>
-            <p>Precio: $80</p>
-            <div class="rating">★★★★☆</div>
-            <p>Ratón ergonómico con botones programables y sensores de alta precisión para juegos.</p>
-            <button class="add-to-cart" data-nombre="Ratón Gaming" data-precio="80">Agregar al Carrito</button>
-        </div>
-        <div class="producto" data-nombre="Monitor UltraWide">
-            <img src="img/monitor.png" alt="Monitor UltraWide">
-            <h3>Monitor UltraWide</h3>
-            <p>Precio: $600</p>
-            <div class="rating">★★★★★</div>
-            <p>Monitor UltraWide de 34 pulgadas con resolución 1440p y una tasa de refresco de 144Hz.</p>
-            <button class="add-to-cart" data-nombre="Monitor UltraWide" data-precio="600">Agregar al Carrito</button>
-        </div>
-        <div class="producto" data-nombre="Silla Ergonómica">
-            <img src="img/silla.png" alt="Silla Ergonómica">
-            <h3>Silla Ergonómica</h3>
-            <p>Precio: $350</p>
-            <div class="rating">★★★★☆</div>
-            <p>Silla ergonómica ajustable con soporte lumbar, ideal para largas jornadas de trabajo o juego.</p>
-            <button class="add-to-cart" data-nombre="Silla Ergonómica" data-precio="350">Agregar al Carrito</button>
-        </div>
-        <div class="producto" data-nombre="Cámara Web 4K">
-            <img src="img/camara.png" alt="Cámara Web 4K">
-            <h3>Cámara Web 4K</h3>
-            <p>Precio: $200</p>
-            <div class="rating">★★★☆☆</div>
-            <p>Cámara web con resolución 4K, ideal para videoconferencias y streaming de alta calidad.</p>
-            <button class="add-to-cart" data-nombre="Cámara Web 4K" data-precio="200">Agregar al Carrito</button>
-        </div>
-        <div class="producto" data-nombre="Disco Duro SSD 1TB">
-            <img src="img/disco.png" alt="Disco Duro SSD 1TB">
-            <h3>Disco Duro SSD 1TB</h3>
-            <p>Precio: $120</p>
-            <div class="rating">★★★★★</div>
-            <p>Disco duro SSD de 1TB para almacenamiento rápido y confiable.</p>
-            <button class="add-to-cart" data-nombre="Disco Duro SSD 1TB" data-precio="120">Agregar al Carrito</button>
-        </div>
-        <div class="producto" data-nombre="Cargador Inalámbrico">
-            <img src="img/cargador.png" alt="Cargador Inalámbrico">
-            <h3>Cargador Inalámbrico</h3>
-            <p>Precio: $40</p>
-            <div class="rating">★★★☆☆</div>
-            <p>Cargador inalámbrico rápido para tus dispositivos compatibles con carga Qi.</p>
-            <button class="add-to-cart" data-nombre="Cargador Inalámbrico" data-precio="40">Agregar al Carrito</button>
-        </div>
-    </section>
-    
-    <div id="cart-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Carrito de Compras</h2>
-            <ul id="cart-items"></ul>
-            <p>Total: $<span id="cart-total">0</span></p>
-            <button id="clear-cart">Vaciar Carrito</button>
+        <div id="resultado" class="mt-5 row"></div>
+    </main>
+
+
+    <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-3 font-bold" id="staticBackdropLabel"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer flex justify-content-between"></div>
+            </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-danger text-white">
+                <strong class="me-auto text-white">App Recetas</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body"></div>
+        </div>
+    </div>
+
+  
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
